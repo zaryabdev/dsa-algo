@@ -1,47 +1,72 @@
-class Solution {
-    /**
-     * @param {character[][]} board
-     * @return {boolean}
-     */
-    isValidSudoku(board) {
-        const cols = new Map();
-        const rows = new Map();
-        const squares = new Map(); // key = (r / 3) * 3 + c / 3
+/**
+ * @param {character[][]} board
+ * @return {boolean}
+ * O(1)
+ */
+var isValidSudoku = function (board) {
+    debugger;
+    // Validate Rows
+    for (let i = 0; i < 9; i++) {
+        let set = new Set();
+        for (let j = 0; j < 9; j++) {
+            let item = board[i][j];
+            if (item !== "." && set.has(item)) {
+                return false;
+            }
+            set.add(item);
+        }
+    }
 
-        for (let r = 0; r < 9; r++) {
-            for (let c = 0; c < 9; c++) {
-                const cell = board[r][c];
-                if (cell === ".") {
-                    continue;
-                }
-                if (
-                    rows.get(r)?.has(cell) ||
-                    cols.get(c)?.has(cell) ||
-                    squares
-                        .get(Math.floor(r / 3) * 3 + Math.floor(c / 3))
-                        ?.has(cell)
-                ) {
+    // Validate Columns
+    for (let i = 0; i < 9; i++) {
+        let set = new Set();
+        for (let j = 0; j < 9; j++) {
+            let item = board[j][i];
+            if (item !== "." && set.has(item)) {
+                return false;
+            }
+            set.add(item);
+        }
+    }
+
+    // Validate 3x3 Sub-grids
+    let starts = [
+        [0, 0],
+        [0, 3],
+        [0, 6],
+        [3, 0],
+        [3, 3],
+        [3, 6],
+        [6, 0],
+        [6, 3],
+        [6, 6],
+    ];
+
+    for (let [startRow, startCol] of starts) {
+        let set = new Set();
+        for (let row = startRow; row < startRow + 3; row++) {
+            for (let col = startCol; col < startCol + 3; col++) {
+                let item = board[row][col];
+                if (item !== "." && set.has(item)) {
                     return false;
                 }
-                cols.set(c, new Set(cols.get(c)).add(cell));
-                rows.set(r, new Set(rows.get(r)).add(cell));
-                squares.set(
-                    Math.floor(r / 3) * 3 + Math.floor(c / 3),
-                    new Set(
-                        squares.get(Math.floor(r / 3) * 3 + Math.floor(c / 3))
-                    ).add(cell)
-                );
+                set.add(item);
             }
         }
-        return true;
     }
-}
 
-/*
-[["1","2",".",".","3",".",".",".","."],["4",".",".","5",".",".",".",".","."],[".","9","8",".",".",".",".",".","3"],["5",".",".",".","6",".",".",".","4"],[".",".",".","8",".","3",".",".","5"],["7",".",".",".","2",".",".",".","6"],[".",".",".",".",".",".","2",".","."],[".",".",".","4","1","9",".",".","8"],[".",".",".",".","8",".",".","7","9"]]
-
-
-[["1","2",".",".","3",".",".",".","."],["4",".",".","5",".",".",".",".","."],[".","9","1",".",".",".",".",".","3"],["5",".",".",".","6",".",".",".","4"],[".",".",".","8",".","3",".",".","5"],["7",".",".",".","2",".",".",".","6"],[".",".",".",".",".",".","2",".","."],[".",".",".","4","1","9",".",".","8"],[".",".",".",".","8",".",".","7","9"]]
-
-
-*/
+    return true;
+};
+// console.log(
+//     isValidSudoku([
+//         ["8", "3", ".", ".", "7", ".", ".", ".", "."],
+//         ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+//         [".", "9", "8", ".", ".", ".", ".", "6", "."],
+//         ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+//         ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+//         ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+//         [".", "6", ".", ".", ".", ".", "2", "8", "."],
+//         [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+//         [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+//     ])
+// );
