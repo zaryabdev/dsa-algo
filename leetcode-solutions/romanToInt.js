@@ -21,6 +21,40 @@ X can be placed before L (50) and C (100) to make 40 and 90.
 C can be placed before D (500) and M (1000) to make 400 and 900.
 Given a roman numeral, convert it to an integer.
  */
-var romanToInt = function (s) {
 
+
+
+var romanToInt = function (s) {
+    const d = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+    let summ = 0;
+    const n = s.length;
+    let i = 0;
+
+    while (i < n) {
+        if (i < n - 1 && d[s[i]] < d[s[i + 1]]) {
+            summ += d[s[i + 1]] - d[s[i]];
+            i += 2;
+        } else {
+            summ += d[s[i]];
+            i++;
+        }
+    }
+
+    return summ;
+};
+
+
+var romanToInt = function (s) {
+    const d = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+    let summ = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        if (i + 1 < s.length && d[s[i]] < d[s[i + 1]]) {
+            summ -= d[s[i]];
+        } else {
+            summ += d[s[i]];
+        }
+    }
+
+    return summ;
 };
