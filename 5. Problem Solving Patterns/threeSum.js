@@ -44,6 +44,41 @@ var threeSum = function (nums) {
     return finalArray;
 };
 
+function threeSum(nums) {
+    const hashMap = new Map();
+
+    for (let i = 0; i < nums.length; i++) {
+        hashMap.set(nums[i], i);
+    }
+
+    let set = new Set();
+
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            let expectedNum = -nums[i] + nums[j];
+            if (
+                hashMap.has(expectedNum) &&
+                i !== hashMap.get(expectedNum) &&
+                j !== hashMap.get(expectedNum)
+            ) {
+                let tuple = [expectedNum, nums[i], nums[j]];
+
+                tuple = tuple.sort((a, b) => a - b);
+                set.add(tuple.toString());
+            }
+        }
+    }
+
+    let result = Array.from(set, convertToArray);
+
+    return result;
+}
+
+function convertToArray(str = "") {
+    let arr = str.split(",");
+    return arr.map(Number);
+}
+
 // Two Pointer Solution:
 var threeSum = function (nums) {
     nums.sort((a, b) => a - b);
