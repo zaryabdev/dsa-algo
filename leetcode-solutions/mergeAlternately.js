@@ -10,18 +10,22 @@
  * https://leetcode.com/problems/merge-strings-alternately/description/
  */
 var mergeAlternately = function (word1, word2) {
-    let length = word1.length + word2.length;
+    debugger;
+    let length = word1.length > word2.length ? word1.length : word2.length;
     let str = "";
 
     for (let i = 0; i < length; i++) {
-        let one = word1[i];
-
-        if (i % 2 === 0) {
+        if (word1[i]) {
             str += word1[i];
-        } else {
+        }
+        if (word2[i]) {
             str += word2[i];
-
         }
     }
-
+    return str;
 };
+
+console.log(
+    mergeAlternately("abc", "xyzlmnop")
+    //                   i
+);
