@@ -1,4 +1,5 @@
 // Hashmap Solution:
+// ‼ exceeds leetcode last test limit
 
 /**
  * @param {number[]} nums
@@ -55,7 +56,7 @@ function threeSum(nums) {
 
     for (let i = 0; i < nums.length; i++) {
         for (let j = i + 1; j < nums.length; j++) {
-            let expectedNum = -nums[i] + nums[j];
+            let expectedNum = - nums[i] + nums[j];
             if (
                 hashMap.has(expectedNum) &&
                 i !== hashMap.get(expectedNum) &&
@@ -69,15 +70,17 @@ function threeSum(nums) {
         }
     }
 
+    function convertToArray(str = "") {
+        let arr = str.split(",");
+        return arr.map(Number);
+    }
+
     let result = Array.from(set, convertToArray);
 
     return result;
 }
 
-function convertToArray(str = "") {
-    let arr = str.split(",");
-    return arr.map(Number);
-}
+
 
 // Two Pointer Solution:
 var threeSum = function (nums) {
