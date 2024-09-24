@@ -8,23 +8,16 @@
  * transaction. If you cannot achieve any profit, return 0.
  */
 var maxProfit = function (prices) {
-    let left = 0;
-    let right = 1;
-    let maxProfit = 0;
-
+    let left = 0, right = 1, maxProfit = 0;
     while (right < prices.length) {
-        if (prices[right] > prices[left]) {
-            let profit = prices[right] - prices[left];
-            if (maxProfit < profit) {
-                maxProfit = profit;
-            }
-        } else {
+        if (prices[right] < prices[left]) {
             left = right;
+        } else {
+            let currentProfit = prices[right] - prices[left];
+            maxProfit = Math.max(currentProfit, maxProfit);
         }
-
         right++;
     }
-
     return maxProfit;
 
 };
