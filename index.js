@@ -1,25 +1,16 @@
-
-const uncompress = (s) => {
-
-    let result = [];
-    let i = 0, j = 0;
+const compress = (s) => {
 
 
-    while (j < s.length) {
-        if (isInteger(s[j])) {
-            j += 1;
-        } else {
-            const num = Number(s.slice(i, j));
-            for (let count = 0; count < num; count++) {
-                result.push(s[j]);
-            }
-            j += 1;
-            i = j;
-        }
-    }
 
-    return result.join("");
 };
+
+
+console.log(compress("ccaaatsss")); // 2c3at3s
+// console.log(compress("ssssbbz")); // 4s2bz
+// console.log(compress("ppoppppp")); // 2po5p
+// console.log(compress("nnneeeeeeeeeeeezz")); // 3n12e2z
+// console.log(compress("z")); // z
+// console.log(compress("2z")); // zz
 
 function isInteger(s) {
     let code = s.charCodeAt();
@@ -28,8 +19,3 @@ function isInteger(s) {
     }
     return false;
 }
-
-console.log(uncompress("2c3a1t")); // -> 'ccaaat'
-console.log(uncompress("4s2b")); // -> 'ssssbb'
-console.log(uncompress("2p1o5p")); // -> 'ppoppppp'
-console.log(uncompress("3n12e2z")); // -> 'nnneeeeeeeeeeeezz'
