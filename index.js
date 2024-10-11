@@ -1,21 +1,19 @@
-const compress = (s) => {
-
-
-
-};
-
-
-console.log(compress("ccaaatsss")); // 2c3at3s
-// console.log(compress("ssssbbz")); // 4s2bz
-// console.log(compress("ppoppppp")); // 2po5p
-// console.log(compress("nnneeeeeeeeeeeezz")); // 3n12e2z
-// console.log(compress("z")); // z
-// console.log(compress("2z")); // zz
-
-function isInteger(s) {
-    let code = s.charCodeAt();
-    if (code <= 57 && code >= 48) {
-        return true;
+function isPrime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i == 0) {
+            return false;
+        }
     }
-    return false;
+    return true;
 }
+
+
+console.log(
+    isPrime(2), // -> true
+    // isPrime(3), // -> true
+    // isPrime(4), // -> false
+    // isPrime(5), // -> true
+    // isPrime(2048), // -> false
+    // isPrime(713), // -> false
+);
