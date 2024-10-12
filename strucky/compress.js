@@ -8,7 +8,21 @@
  */
 
 const compress = (s) => {
-    // todo
+    let i = 0, j = 0;
+    let res = [];
+    while (i < s.length) {
+        if (s[i] == s[j]) {
+            j++;
+        } else {
+            if (j - i == 1) {
+                res.push(s[i]);
+            } else {
+                res.push(j - i, s[i]);
+            }
+            i = j;
+        }
+    }
+    return res.join("");
 };
 
 
