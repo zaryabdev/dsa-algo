@@ -1,19 +1,32 @@
-function isPrime(n) {
-    if (n < 2) return false;
-    for (let i = 2; i <= Math.sqrt(n); i++) {
-        if (n % i == 0) {
-            return false;
+
+const mostFrequentChar = (s) => {
+    let hashMap = {
+        // "e" : [idnex, times]
+    };
+    debugger;
+    for (let i = 0; i < s.length; i++) {
+        let letter = s[i];
+        if (hashMap[letter]) {
+            let [idx, count] = hashMap[letter];
+            hashMap[letter] = [idx, ++count];
+        } else {
+            hashMap[letter] = [i, 1];
         }
     }
-    return true;
-}
+    debugger;
+
+    let mostFreq = "";
+
+};
+
 
 
 console.log(
-    isPrime(2), // -> true
-    // isPrime(3), // -> true
-    // isPrime(4), // -> false
-    // isPrime(5), // -> true
-    // isPrime(2048), // -> false
-    // isPrime(713), // -> false
+    mostFrequentChar('bookeeper'), // -> 'e'
+    // mostFrequentChar('david'), // -> 'd'
+    // mostFrequentChar('abby'), // -> 'b'
+    // mostFrequentChar('potato'), // -> 'o'
+    // mostFrequentChar('eleventennine'), // -> 'e'
+    // mostFrequentChar("riverbed"), // -> 'r'
+
 );
