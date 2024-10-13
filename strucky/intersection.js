@@ -1,3 +1,10 @@
+/***
+ * Write a function, intersection, that takes in two arrays, a,b, as arguments.
+ * The function should return a new array containing elements that are in
+ * both of the two arrays.
+ * https://www.structy.net/problems/intersection
+ */
+
 const intersection = (a, b) => {
     let set = new Set(a);
 
@@ -13,8 +20,7 @@ const intersection = (a, b) => {
 
 
 console.log(
-    // intersection([4, 2, 1, 6], [3, 6, 9, 2, 10]),// -> [2,6]
-    intersection([4, 2, 1, 6], [4, 2, 1, 6]),// -> [4, 2, 1, 6]
+    intersection([4, 2, 1, 6], [3, 6, 9, 2, 10]),// -> [2,6]
     // intersection([2, 4, 6], [4, 2]), // -> [2,4]
     // intersection([4, 2, 1], [1, 2, 4, 6]),// -> [1,2,4]
     // intersection([4, 2, 1], [1, 2, 4, 6]),// -> [1,2,4]
