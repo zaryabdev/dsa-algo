@@ -20,7 +20,8 @@ console.log(JSON.stringify(c));
 
 //  A -> B -> C -> D
 
-// const printLinkedListNonRec = (head) => {
+// iterative
+// const printLinkedList = (head) => {
 //     let current = head;
 //     console.log(JSON.stringify(current));
 //     while (current !== null) {
@@ -31,6 +32,7 @@ console.log(JSON.stringify(c));
 //     }
 // };
 
+// recursive
 const printLinkedList = (head) => {
     if (head == null) return;
     console.log(head.val);
