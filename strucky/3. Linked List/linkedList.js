@@ -20,15 +20,21 @@ console.log(JSON.stringify(c));
 
 //  A -> B -> C -> D
 
+// const printLinkedListNonRec = (head) => {
+//     let current = head;
+//     console.log(JSON.stringify(current));
+//     while (current !== null) {
+//         if (current) {
+//             console.log(current.val);
+//             current = current.next;
+//         }
+//     }
+// };
+
 const printLinkedList = (head) => {
-    let current = head;
-    console.log(JSON.stringify(current));
-    while (current !== null) {
-        if (current) {
-            console.log(current.val);
-            current = current.next;
-        }
-    }
+    if (head == null) return;
+    console.log(head.val);
+    printLinkedList(head.next);
 };
 
 printLinkedList(a);
