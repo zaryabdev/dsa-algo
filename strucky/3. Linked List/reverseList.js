@@ -12,23 +12,26 @@ class Node {
     }
 }
 
-const reverseList = (head) => {
-    let prev = null;
-    let current = head;
+// iterative
+// const reverseList = (head) => {
+//     let prev = null;
+//     let current = head;
 
-    while (current !== null) {
+//     while (current !== null) {
+//         let next = current.next;
+//         current.next = prev;
+//         prev = current;
+//         current = next;
+//     }
+//     return prev;
+// };
 
-        let next = current.next;
-
-        current.next = prev;
-        prev = current;
-        current = next;
-
-
-    }
-
-    return prev;
-
+// recursive
+const reverseList = (head, prev = null) => {
+    if (head == null) return prev;
+    let next = head.next;
+    head.next = prev;
+    return reverseList(next, prev);
 };
 
 const a = new Node("a");
@@ -45,10 +48,26 @@ d.next = e;
 e.next = f;
 
 // a -> b -> c -> d -> e -> f
+// printLinkedList(a);
 
 console.log(
     reverseList(a) // f -> e -> d -> c -> b -> a
 );
+
+// const newHead = reverseList(a);
+
+// printLinkedList(newHead);
+
+
+
+function printLinkedList(head) {
+    if (head == null) return;
+    console.log(head.val);
+    printLinkedList(head.next);
+};
+
+
+
 const p = new Node("p");
 
 // p
