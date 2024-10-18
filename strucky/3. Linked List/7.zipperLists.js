@@ -48,12 +48,21 @@ class Node {
 
 
 const zipperLists = (head1, head2) => {
+    debugger;
     let zipperList = head1;
     let curr1 = head1.next;
     let curr2 = head2;
     let count = 0;
-
     while (curr1 != null && curr2 != null) {
+        if (count % 2 == 0) {
+            zipperList.next = curr2;
+            curr2 = curr2.next;
+        } else {
+            zipperList.next = curr1;
+            curr1 = curr1.next;
+        }
+        zipperList = zipperList.next;
+        count += 1;
 
     }
 
@@ -61,7 +70,7 @@ const zipperLists = (head1, head2) => {
     if (curr1 == null) zipperList.next = curr2;
     if (curr2 == null) zipperList.next = curr1;
 
-
+    debugger;
     return zipperList;
 };
 
