@@ -35,15 +35,34 @@ class Node {
 // };
 
 // recursive
+// const zipperLists = (head1, head2) => {
+//     if (head1 === null && head2 === null) return null;
+//     if (head1 === null) return head2;
+//     if (head2 === null) return head1;
+//     const next1 = head1.next;
+//     const next2 = head2.next;
+//     head1.next = head2;
+//     head2.next = zipperLists(next1, next2);
+//     return head1;
+// };
+
+
 const zipperLists = (head1, head2) => {
-    if (head1 === null && head2 === null) return null;
-    if (head1 === null) return head2;
-    if (head2 === null) return head1;
-    const next1 = head1.next;
-    const next2 = head2.next;
-    head1.next = head2;
-    head2.next = zipperLists(next1, next2);
-    return head1;
+    let zipperList = head1;
+    let curr1 = head1.next;
+    let curr2 = head2;
+    let count = 0;
+
+    while (curr1 != null && curr2 != null) {
+
+    }
+
+
+    if (curr1 == null) zipperList.next = curr2;
+    if (curr2 == null) zipperList.next = curr1;
+
+
+    return zipperList;
 };
 
 // Test Cases
