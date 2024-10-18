@@ -16,7 +16,7 @@ const isUnivalue = (head) => {
 function _isUnique(head, val = null) {
     if (head == null) return true;
     if (head.val != val) return false;
-    return _isUnique(head.next, val);
+    return _isUnique(head.next, head.val);
 }
 
 class Node {
