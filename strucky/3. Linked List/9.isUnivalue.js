@@ -13,9 +13,9 @@ const isUnivalue = (head) => {
     return _isUnique(head, head.val);
 };
 
-function _isUnique(head, val = null) {
+function _isUnique(head, prevVal = null) {
     if (head == null) return true;
-    if (head.val != val) return false;
+    if (prevVal != null && head.val != prevVal) return false;
     return _isUnique(head.next, head.val);
 }
 
