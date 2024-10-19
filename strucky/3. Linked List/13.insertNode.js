@@ -5,23 +5,77 @@ class Node {
     }
 }
 
-const insertNode = (head, index, value) => {
-    const list = head;
-    let current = head;
-    let count = 0;
-    debugger;
-    while (current != null || count < index) {
-        if (count == index) {
-            const node = new Node(value);
-            let next = current.next;
-            current.next = node;
-            current = next;
-        }
-        current = current.next;
-        count++;
+const insertNode = (head, index, value, count = 0) => {
+    if (head == null) return null;
+    if (index == 0) {
+        let newNode = new Node(value);
+        newNode.next = head;
+        return newNode;
     }
-    return list;
+    if (count = index - 1) {
+        let node = new Node(value);
+        let next = head.next;
+
+        head.next = node;
+        head.next.next = next;
+
+        return head;
+    }
+    insertNode(head.next, index, value, count++);
+    return head;
 };
+
+// const insertNode2 = (head, index, value) => {
+//     if (index == 0) {
+//         let newNode = new Node(value);
+//         newNode.next = head;
+//         return newNode;
+//     }
+
+//     const list = head;
+//     let curr = list;
+//     let count = 0;
+
+//     while (curr != null) {
+//         if (count == index - 1) {
+//             let node = new Node(value);
+//             let next = curr.next;
+//             curr.next = node;
+//             node.next = next;
+//             break;
+//         }
+//         count += 1;
+//         curr = curr.next;
+//     }
+
+//     return list;
+// };
+
+// Two pointers
+// const insertNode = (head, index, value) => {
+//     if (index == 0) {
+//         let newNode = new Node(value);
+//         newNode.next = head;
+//         return newNode;
+//     }
+//     const list = head;
+//     let curr = list;
+//     let prev = null;
+//     let count = 0;
+
+//     while (curr != null) {
+//         if (count == index) {
+//             const node = new Node(value);
+//             node.next = curr;
+//             prev.next = node;
+//             break;
+//         }
+//         count += 1;
+//         prev = curr;
+//         curr = curr.next;
+//     }
+//     return list;
+// };
 
 
 const a = new Node("A");
