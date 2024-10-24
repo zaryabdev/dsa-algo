@@ -21,11 +21,14 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var mergeSortedArray = function (nums1, m, nums2, n) {
-    let i = m - 1, j = n - 1, k = m + n - 1;
+    let i = m - 1;      // num1 pointer | compare
+    let j = n - 1;      // num2 pointer | compare
+    let k = m + n - 1;  // num1 pointer | replace
 
     while (i >= 0 && j >= 0) {
         nums1[k--] = nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
     }
+
     while (j >= 0) {
         nums1[k--] = nums2[j--];
     }
