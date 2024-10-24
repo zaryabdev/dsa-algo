@@ -20,20 +20,20 @@
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-var merge = function(nums1, m, nums2, n) {
-    let i = m - 1, j = n - 1, k = m + n - 1
-    
-    while(i >= 0 && j >= 0) {
-        nums1[k--] = nums1[i] > nums2[j] ? nums1[i--] : nums2[j--]
+var mergeSortedArray = function (nums1, m, nums2, n) {
+    let i = m - 1, j = n - 1, k = m + n - 1;
+
+    while (i >= 0 && j >= 0) {
+        nums1[k--] = nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
     }
-    while(j >= 0) {
-        nums1[k--] = nums2[j--]
+    while (j >= 0) {
+        nums1[k--] = nums2[j--];
     }
 };
 
 // Test case
 var m = [4, 5, 6, 0, 0, 0];
 var n = [1, 2, 3];
-merge(m, 3, n, 3);
+mergeSortedArray(m, 3, n, 3);
 
 console.log(m.toString() === '1,2,3,4,5,6'); // true
