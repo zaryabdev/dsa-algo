@@ -2,19 +2,19 @@ Here’s a quick guide to help you prepare for CRUD operations in MongoDB for in
 
 ---
 
-### **1. What is CRUD?**
+### 1. What is CRUD?
 
-CRUD stands for **Create**, **Read**, **Update**, and **Delete**, which are the basic operations for interacting with a database.
+CRUD stands for Create, Read, Update, and Delete, which are the basic operations for interacting with a database.
 
 ---
 
-### **2. CREATE**
+### 2. CREATE
 
-**Operation**: Insert a document into a collection.
+Operation: Insert a document into a collection.
 
--   **Command**: `db.collection.insertOne()` or `db.collection.insertMany()`
+-   Command: `db.collection.insertOne()` or `db.collection.insertMany()`
 
-**Examples**:
+Examples:
 
 ```javascript
 // Insert one document
@@ -29,13 +29,13 @@ db.users.insertMany([
 
 ---
 
-### **3. READ**
+### 3. READ
 
-**Operation**: Retrieve documents from a collection.
+Operation: Retrieve documents from a collection.
 
--   **Command**: `db.collection.find()` or `db.collection.findOne()`
+-   Command: `db.collection.find()` or `db.collection.findOne()`
 
-**Examples**:
+Examples:
 
 ```javascript
 // Find all documents
@@ -53,13 +53,13 @@ db.users.find({}, { name: 1, age: 1, _id: 0 });
 
 ---
 
-### **4. UPDATE**
+### 4. UPDATE
 
-**Operation**: Modify existing documents in a collection.
+Operation: Modify existing documents in a collection.
 
--   **Command**: `db.collection.updateOne()`, `db.collection.updateMany()`, or `db.collection.replaceOne()`
+-   Command: `db.collection.updateOne()`, `db.collection.updateMany()`, or `db.collection.replaceOne()`
 
-**Examples**:
+Examples:
 
 ```javascript
 // Update one document
@@ -77,13 +77,13 @@ db.users.replaceOne(
 
 ---
 
-### **5. DELETE**
+### 5. DELETE
 
-**Operation**: Remove documents from a collection.
+Operation: Remove documents from a collection.
 
--   **Command**: `db.collection.deleteOne()` or `db.collection.deleteMany()`
+-   Command: `db.collection.deleteOne()` or `db.collection.deleteMany()`
 
-**Examples**:
+Examples:
 
 ```javascript
 // Delete one document
@@ -95,14 +95,14 @@ db.users.deleteMany({ age: { $lt: 25 } });
 
 ---
 
-### **6. BONUS: Query Operators**
+### 6. BONUS: Query Operators
 
--   **Comparison**: `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`, `$in`, `$nin`
--   **Logical**: `$and`, `$or`, `$not`, `$nor`
--   **Element**: `$exists`, `$type`
--   **Array**: `$all`, `$elemMatch`, `$size`
+-   Comparison: `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`, `$in`, `$nin`
+-   Logical: `$and`, `$or`, `$not`, `$nor`
+-   Element: `$exists`, `$type`
+-   Array: `$all`, `$elemMatch`, `$size`
 
-**Example**:
+Example:
 
 ```javascript
 // Find users with age greater than 25 OR email containing "example.com"
@@ -113,7 +113,7 @@ db.users.find({
 
 ---
 
-### **7. Additional Tips**
+### 7. Additional Tips
 
 -   Know the difference between `insertOne` and `insertMany`.
 -   Understand the use of `$set`, `$unset`, and `$inc` for updates.

@@ -1,22 +1,22 @@
-Here’s a quick guide to prepare for interview questions on building RESTful APIs, middleware, and error handling in **Express.js**:
+Here’s a quick guide to prepare for interview questions on building RESTful APIs, middleware, and error handling in Express.js:
 
 ---
 
-### **1. What is RESTful API?**
+### 1. What is RESTful API?
 
 A RESTful API is an architectural style for building APIs:
 
--   **Stateless**: Server doesn't store client state.
--   **Resource-based**: Uses URLs to represent resources.
--   **HTTP Methods**:
-    -   **GET**: Retrieve data.
-    -   **POST**: Create data.
-    -   **PUT/PATCH**: Update data.
-    -   **DELETE**: Remove data.
+-   Stateless: Server doesn't store client state.
+-   Resource-based: Uses URLs to represent resources.
+-   HTTP Methods:
+    -   GET: Retrieve data.
+    -   POST: Create data.
+    -   PUT/PATCH: Update data.
+    -   DELETE: Remove data.
 
 ---
 
-### **2. Setting Up Express.js**
+### 2. Setting Up Express.js
 
 ```javascript
 const express = require("express");
@@ -36,11 +36,11 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 ---
 
-### **3. Building RESTful Routes**
+### 3. Building RESTful Routes
 
--   Define routes for **CRUD operations**.
+-   Define routes for CRUD operations.
 
-**Example**: API for managing "users"
+Example: API for managing "users"
 
 ```javascript
 const users = []; // Mock data
@@ -75,16 +75,16 @@ app.delete("/users/:id", (req, res) => {
 
 ---
 
-### **4. Middleware in Express.js**
+### 4. Middleware in Express.js
 
-Middleware functions are functions that execute before the final route handler. Common uses include **logging**, **authentication**, and **error handling**.
+Middleware functions are functions that execute before the final route handler. Common uses include logging, authentication, and error handling.
 
-**Built-in Middleware**:
+Built-in Middleware:
 
 -   `express.json()` for parsing JSON.
 -   `express.urlencoded()` for parsing URL-encoded data.
 
-**Custom Middleware Example**:
+Custom Middleware Example:
 
 ```javascript
 // Logger middleware
@@ -94,12 +94,12 @@ app.use((req, res, next) => {
 });
 ```
 
-**Third-Party Middleware**:
+Third-Party Middleware:
 
--   **cors**: For handling cross-origin requests.
--   **helmet**: For enhancing API security.
+-   cors: For handling cross-origin requests.
+-   helmet: For enhancing API security.
 
-**Example**:
+Example:
 
 ```javascript
 const cors = require("cors");
@@ -111,11 +111,11 @@ app.use(helmet());
 
 ---
 
-### **5. Error Handling in Express.js**
+### 5. Error Handling in Express.js
 
 Proper error handling ensures the API is robust and user-friendly.
 
-**Basic Error Handling Middleware**:
+Basic Error Handling Middleware:
 
 ```javascript
 app.use((err, req, res, next) => {
@@ -126,7 +126,7 @@ app.use((err, req, res, next) => {
 });
 ```
 
-**Throwing Errors in Routes**:
+Throwing Errors in Routes:
 
 ```javascript
 app.get("/error", (req, res, next) => {
@@ -136,7 +136,7 @@ app.get("/error", (req, res, next) => {
 });
 ```
 
-**404 Not Found Middleware**:
+404 Not Found Middleware:
 
 ```javascript
 app.use((req, res, next) => {
@@ -146,9 +146,9 @@ app.use((req, res, next) => {
 
 ---
 
-### **6. Tips for Interviews**
+### 6. Tips for Interviews
 
-1. **Understand HTTP Status Codes**:
+1. Understand HTTP Status Codes:
 
     - 200: OK
     - 201: Created
@@ -157,18 +157,18 @@ app.use((req, res, next) => {
     - 404: Not Found
     - 500: Internal Server Error
 
-2. **Explain Middleware Flow**:
+2. Explain Middleware Flow:
    Middleware executes in the order it’s defined. Use `next()` to pass control.
 
-3. **Securing APIs**:
+3. Securing APIs:
 
-    - Use **helmet** and **rate-limiting**.
-    - Use **JWT** for authentication.
+    - Use helmet and rate-limiting.
+    - Use JWT for authentication.
 
-4. **Validation**:
+4. Validation:
    Use libraries like `Joi` or `express-validator` to validate request data.
 
-**Example: Using Joi for Validation**
+Example: Using Joi for Validation
 
 ```javascript
 const Joi = require("joi");
@@ -188,12 +188,12 @@ app.post("/users", (req, res, next) => {
 
 ---
 
-### **7. Practice Challenges**
+### 7. Practice Challenges
 
--   Build a basic **To-Do API** with CRUD routes.
--   Add **JWT authentication** to a sample API.
+-   Build a basic To-Do API with CRUD routes.
+-   Add JWT authentication to a sample API.
 -   Handle errors for invalid JSON inputs or unauthorized access.
 
 ---
 
-Focus on keeping answers concise and supported with examples. Be ready to explain the **"why"** behind design decisions like middleware order or error handling choices.
+Focus on keeping answers concise and supported with examples. Be ready to explain the "why" behind design decisions like middleware order or error handling choices.
